@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Safe</title>
+</head>
+<body>
+
+    <!-- LOGIN -->
+    <div id="login">
+        <h1>🔐 Memory Safe</h1>
+        <p>Inicia sesión con Google para jugar y guardar tus partidas.</p>
+        <button id="btn-login">Entrar con Google</button>
+    </div>
+
+    <!-- APP (solo si hay sesión) -->
+    <div id="app" class="oculta">
+
+        <header>
+            <span id="usuario"></span>
+            <div>
+                <button id="btn-jugar">Jugar</button>
+                <button id="btn-historial">Historial</button>
+                <button id="btn-logout">Cerrar sesión</button>
+            </div>
+        </header>
+
+        <!-- Pantalla de inicio -->
+        <section id="inicio" class="pantalla">
+            <h1>🔐 Memory Safe</h1>
+            <h2>Instrucciones</h2>
+            <ul>
+                <li>Hay 16 cartas boca abajo con 8 parejas de animales.</li>
+                <li>Pulsa dos cartas para girarlas.</li>
+                <li>Si son iguales, se quedan descubiertas. Si no, se vuelven a tapar.</li>
+                <li>Encuentra las 8 parejas antes de que pasen 60 segundos.</li>
+                <li>Puntuación: 100 por pareja, -10 por cada fallo y +5 por cada segundo que te sobre.</li>
+            </ul>
+            <button id="btn-empezar">Nueva partida</button>
+        </section>
+
+        <!-- Pantalla de juego -->
+        <section id="juego" class="pantalla oculta">
+            <div class="info">
+                <span>⏱ <b id="tiempo">60</b> s</span>
+                <span>✅ Parejas: <b id="aciertos">0</b>/8</span>
+                <span>❌ Fallos: <b id="fallos">0</b></span>
+            </div>
+            <div id="tablero"></div>
+        </section>
+
+        <!-- Pantalla de resultado -->
+        <section id="resultado" class="pantalla oculta">
+            <h2 id="resultado-titulo"></h2>
+            <p>Puntuación: <b id="resultado-puntos"></b></p>
+            <p>Duración: <b id="resultado-duracion"></b> segundos</p>
+            <p id="resultado-guardado"></p>
+            <button id="btn-otra">Jugar otra vez</button>
+            <button id="btn-ver-historial">Ver historial</button>
+        </section>
+
+        <!-- Pantalla de historial -->
+        <section id="historial" class="pantalla oculta">
+            <h2>Mi historial</h2>
+            <p>Total de partidas jugadas: <b id="total">0</b></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Resultado</th>
+                        <th>Puntos</th>
+                        <th>Duración</th>
+                    </tr>
+                </thead>
+                <tbody id="lista"></tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
