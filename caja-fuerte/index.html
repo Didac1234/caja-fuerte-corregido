@@ -1,84 +1,137 @@
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Safe</title>
+    <title>Speed Math</title>
 </head>
+
 <body>
 
     <!-- LOGIN -->
-    <div id="login">
-        <h1>🔐 Memory Safe</h1>
-        <p>Inicia sesión con Google para jugar y guardar tus partidas.</p>
-        <button id="btn-login">Entrar con Google</button>
-    </div>
+    <section id="login" class="pantalla">
+        <h1>⚡ SPEED MATH</h1>
+        <p>Pon a prueba tu velocidad mental</p>
 
-    <!-- APP (solo si hay sesión) -->
+        <button id="btn-login">Iniciar sesión con Google</button>
+    </section>
+
+    <!-- APLICACIÓN -->
     <div id="app" class="oculta">
 
         <header>
-            <span id="usuario"></span>
+            <h2>⚡ SPEED MATH</h2>
+
             <div>
-                <button id="btn-jugar">Jugar</button>
-                <button id="btn-historial">Historial</button>
+                <span id="usuario"></span>
                 <button id="btn-logout">Cerrar sesión</button>
             </div>
         </header>
 
-        <!-- Pantalla de inicio -->
+        <!-- INICIO -->
         <section id="inicio" class="pantalla">
-            <h1>🔐 Memory Safe</h1>
-            <h2>Instrucciones</h2>
-            <ul>
-                <li>Hay 16 cartas boca abajo con 8 parejas de animales.</li>
-                <li>Pulsa dos cartas para girarlas.</li>
-                <li>Si son iguales, se quedan descubiertas. Si no, se vuelven a tapar.</li>
-                <li>Encuentra las 8 parejas antes de que pasen 60 segundos.</li>
-                <li>Puntuación: 100 por pareja, -10 por cada fallo y +5 por cada segundo que te sobre.</li>
-            </ul>
-            <button id="btn-empezar">Nueva partida</button>
-        </section>
+            <h1>¡Bienvenido!</h1>
 
-        <!-- Pantalla de juego -->
-        <section id="juego" class="pantalla oculta">
-            <div class="info">
-                <span>⏱ <b id="tiempo">60</b> s</span>
-                <span>✅ Parejas: <b id="aciertos">0</b>/8</span>
-                <span>❌ Fallos: <b id="fallos">0</b></span>
+            <p>Resuelve tantas operaciones como puedas en 60 segundos.</p>
+
+            <div class="reglas">
+                <p>✅ Cada acierto suma 10 puntos.</p>
+                <p>⏱️ Tienes 60 segundos.</p>
+                <p>🧠 Demuestra tu habilidad matemática.</p>
             </div>
-            <div id="tablero"></div>
+
+            <button id="btn-empezar">EMPEZAR JUEGO</button>
+
+            <button id="btn-historial">VER HISTORIAL</button>
         </section>
 
-        <!-- Pantalla de resultado -->
+        <!-- JUEGO -->
+        <section id="juego" class="pantalla oculta">
+
+            <div class="info">
+                <div>
+                    <p>TIEMPO</p>
+                    <h2 id="tiempo">60</h2>
+                </div>
+
+                <div>
+                    <p>PUNTOS</p>
+                    <h2 id="puntos">0</h2>
+                </div>
+
+                <div>
+                    <p>ACIERTOS</p>
+                    <h2 id="aciertos">0</h2>
+                </div>
+            </div>
+
+            <h2>¿Cuánto es?</h2>
+
+            <div id="operacion">
+                5 + 5
+            </div>
+
+            <div id="respuestas">
+                <button class="respuesta"></button>
+                <button class="respuesta"></button>
+                <button class="respuesta"></button>
+                <button class="respuesta"></button>
+            </div>
+
+            <p id="mensaje"></p>
+
+        </section>
+
+        <!-- RESULTADO -->
         <section id="resultado" class="pantalla oculta">
-            <h2 id="resultado-titulo"></h2>
-            <p>Puntuación: <b id="resultado-puntos"></b></p>
-            <p>Duración: <b id="resultado-duracion"></b> segundos</p>
-            <p id="resultado-guardado"></p>
-            <button id="btn-otra">Jugar otra vez</button>
-            <button id="btn-ver-historial">Ver historial</button>
+
+            <h1 id="titulo-resultado">¡Partida terminada!</h1>
+
+            <div class="resultado-info">
+                <p>Puntuación</p>
+                <h1 id="resultado-puntos">0</h1>
+
+                <p>Respuestas correctas</p>
+                <h2 id="resultado-aciertos">0</h2>
+            </div>
+
+            <p id="guardado"></p>
+
+            <button id="btn-otra">VOLVER A JUGAR</button>
+            <button id="btn-inicio">VOLVER AL MENÚ</button>
+
         </section>
 
-        <!-- Pantalla de historial -->
+        <!-- HISTORIAL -->
         <section id="historial" class="pantalla oculta">
-            <h2>Mi historial</h2>
-            <p>Total de partidas jugadas: <b id="total">0</b></p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Resultado</th>
-                        <th>Puntos</th>
-                        <th>Duración</th>
-                    </tr>
-                </thead>
-                <tbody id="lista"></tbody>
-            </table>
+
+            <h1>📊 Mi historial</h1>
+
+            <p>Partidas realizadas: <span id="total">0</span></p>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Puntos</th>
+                            <th>Aciertos</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista"></tbody>
+                </table>
+            </div>
+
+            <button id="btn-volver">VOLVER</button>
+
         </section>
 
     </div>
 
     <script type="module" src="/src/main.js"></script>
+
 </body>
 </html>
